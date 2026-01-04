@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Reservations Dashboard</title>
+<link href="public/restaurant-dashboard/css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="logo">
+<div class="logo-icon">R</div>
+<span class="logo-text">RESERVATIONS</span>
+</div>
+<button aria-label="Close menu" class="sidebar-close" id="sidebarClose">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M18 6L6 18M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+<nav class="sidebar-nav">
+<a class="nav-item active" data-page="reservations" href="#">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+<span>Reservations</span>
+</a>
+<a class="nav-item" data-page="history" href="#">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+<span>Reservation History</span>
+</a>
+<a class="nav-item" data-page="closed" href="#">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+<span>Closed Days &amp; Hours</span>
+</a>
+<a class="nav-item highlight" data-page="calendar" href="#">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+<span>Calendar</span>
+</a>
+<a class="nav-item" data-page="settings" href="#">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+<div class="sidebar-footer">
+<div class="restaurant-info">
+<div class="restaurant-avatar">R</div>
+<div class="restaurant-details">
+<span class="restaurant-name">RestBurger</span>
+<span class="restaurant-email">info@restapp.com</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Overlay for mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<!-- Main Content -->
+<main class="main-content">
+<!-- Top Bar -->
+<header class="topbar">
+<div class="topbar-left">
+<button aria-label="Open menu" class="hamburger" id="hamburgerBtn">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</button>
+<h1 class="page-title">Reservations</h1>
+</div>
+<div class="topbar-right">
+<button class="btn btn-outline" id="previewBtn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</svg>
+<span>Preview</span>
+</button>
+<button class="btn btn-outline" id="helpBtn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<circle cx="12" cy="12" r="10"></circle>
+<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+<line x1="12" x2="12.01" y1="17" y2="17"></line>
+</svg>
+<span>Help</span>
+</button>
+</div>
+</header>
+<!-- Filter Tabs -->
+<div class="filter-tabs">
+<button class="filter-tab active" data-status="waiting">
+                WAITING CONFIRMATION
+            </button>
+<button class="filter-tab" data-status="confirmed">
+                CONFIRMED
+            </button>
+<button class="filter-tab" data-status="cancelled">
+                CANCELLED
+            </button>
+<button class="filter-tab" data-status="all">
+                ALL
+            </button>
+</div>
+<!-- Week Selector & Actions -->
+<div class="calendar-controls">
+<div class="week-selector">
+<button aria-label="Previous week" class="week-nav" id="prevWeek">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</button>
+<span class="week-label" id="weekLabel">9 December Week</span>
+<button aria-label="Next week" class="week-nav" id="nextWeek">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</button>
+</div>
+<div class="calendar-actions">
+<span class="reservations-label">RESERVATIONS</span>
+<button class="btn btn-primary" id="addReservationBtn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16">
+<line x1="12" x2="12" y1="5" y2="19"></line>
+<line x1="5" x2="19" y1="12" y2="12"></line>
+</svg>
+<span>New Reservation</span>
+</button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="calendar-container">
+<div class="calendar-grid" id="calendarGrid">
+<!-- Will be populated by JavaScript -->
+</div>
+</div>
+</main>
+<!-- Add Reservation Modal -->
+<div class="modal" id="reservationModal">
+<div class="modal-overlay"></div>
+<div class="modal-content">
+<div class="modal-header">
+<h2>New Reservation</h2>
+<button aria-label="Close modal" class="modal-close" id="closeModal">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M18 6L6 18M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+<form class="modal-body" id="reservationForm"><input id="reservationId" type="hidden"/>
+<div class="form-group">
+<label for="customerName">Customer Name</label>
+<input id="customerName" placeholder="Enter customer name" required="" type="text"/>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="reservationDate">Date</label>
+<input id="reservationDate" required="" type="date"/>
+</div>
+<div class="form-group">
+<label for="reservationTime">Time</label>
+<select id="reservationTime" required="">
+<option value="">Select time</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="guestCount">Number of Guests</label>
+<input id="guestCount" max="20" min="1" placeholder="2" required="" type="number"/>
+</div>
+<div class="form-group">
+<label for="reservationStatus">Status</label>
+<select id="reservationStatus" required="">
+<option value="waiting">Waiting Confirmation</option>
+<option value="confirmed">Confirmed</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="customerPhone">Phone Number</label>
+<input id="customerPhone" placeholder="+1 234 567 890" type="tel"/>
+</div>
+<div class="form-group">
+<label for="notes">Notes</label>
+<textarea id="notes" placeholder="Special requests or notes..." rows="3"></textarea>
+</div>
+<div class="modal-footer"><button class="btn btn-danger" id="deleteReservationBtn" type="button">Delete</button>
+<button class="btn btn-outline" id="cancelBtn" type="button">Cancel</button>
+<button class="btn btn-primary" type="submit">Create Reservation</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+<div class="toast-content">
+<svg class="toast-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+<polyline points="22 4 12 14.01 9 11.01"></polyline>
+</svg>
+<span class="toast-message" id="toastMessage">Success!</span>
+</div>
+</div>
+
+<!-- Preview Modal -->
+<div aria-hidden="true" class="modal" id="previewModal">
+<div class="modal-overlay" data-close="previewModal"></div>
+<div class="modal-content modal-lg">
+<div class="modal-header">
+<h2>Preview</h2>
+<button aria-label="Close preview" class="modal-close" data-close="previewModal">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M18 6L6 18M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+<div class="modal-body preview-body" id="previewBody">
+<!-- Filled by JS -->
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline" id="printPreviewBtn" type="button">Print</button>
+<button class="btn btn-primary" data-close="previewModal" type="button">Close</button>
+</div>
+</div>
+</div>
+<!-- Help Modal -->
+<div aria-hidden="true" class="modal" id="helpModal">
+<div class="modal-overlay" data-close="helpModal"></div>
+<div class="modal-content">
+<div class="modal-header">
+<h2>Help &amp; Support</h2>
+<button aria-label="Close help" class="modal-close" data-close="helpModal">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<path d="M18 6L6 18M6 6l12 12"></path>
+</svg>
+</button>
+</div>
+<div class="modal-body">
+<p>If you need help, contact our support on WhatsApp.</p>
+<div class="help-card">
+<div class="help-row"><span class="help-label">Restaurant</span><span id="helpRestaurant">—</span></div>
+<div class="help-row"><span class="help-label">Support</span><span id="helpWhatsApp">—</span></div>
+</div>
+<p class="muted">Tip: Click any reservation card to edit or delete it.</p>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="openWhatsAppBtn" type="button">Open WhatsApp</button>
+<button class="btn btn-outline" data-close="helpModal" type="button">Close</button>
+</div>
+</div>
+</div>
+<!-- Admin Drawer: Reservation History -->
+<div aria-hidden="true" class="drawer" id="historyDrawer">
+<div class="drawer-header">
+<h2>Reservation History</h2>
+<button aria-label="Close history" class="drawer-close" data-close="historyDrawer">✕</button>
+</div>
+<div class="drawer-body">
+<div class="drawer-actions">
+<input class="input" id="historySearch" placeholder="Search by name, phone, date or time..."/>
+<select class="select" id="historyStatus">
+<option value="all">All</option>
+<option value="waiting">Waiting</option>
+<option value="confirmed">Confirmed</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</div>
+<div class="table-wrap">
+<table class="table" id="historyTable">
+<thead>
+<tr>
+<th>Date</th><th>Time</th><th>Name</th><th>Phone</th><th>Guests</th><th>Status</th><th></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<p class="muted small">Tip: Click “Edit” to update a reservation.</p>
+</div>
+</div>
+<!-- Admin Drawer: Closed Days & Hours -->
+<div aria-hidden="true" class="drawer" id="closedDrawer">
+<div class="drawer-header">
+<h2>Closed Days &amp; Hours</h2>
+<button aria-label="Close closed" class="drawer-close" data-close="closedDrawer">✕</button>
+</div>
+<div class="drawer-body">
+<h3 class="drawer-section-title">Opening Hours</h3>
+<div class="grid-2">
+<div class="form-group">
+<label for="openHour">Open</label>
+<input class="input" id="openHour" type="time"/>
+</div>
+<div class="form-group">
+<label for="closeHour">Close</label>
+<input class="input" id="closeHour" type="time"/>
+</div>
+</div>
+<h3 class="drawer-section-title">Weekly Closed</h3>
+<div class="weekly-grid" id="weeklyClosedGrid"></div>
+<h3 class="drawer-section-title">Closed Dates</h3>
+<div class="drawer-actions">
+<input class="input" id="closedDateInput" type="date"/>
+<button class="btn btn-primary" id="addClosedDateBtn" type="button">Add</button>
+</div>
+<div class="chips" id="closedDatesChips"></div>
+<div class="drawer-footer">
+<button class="btn btn-primary" id="saveClosedBtn" type="button">Save</button>
+</div>
+</div>
+</div>
+<!-- Admin Drawer: Settings -->
+<div aria-hidden="true" class="drawer" id="settingsDrawer">
+<div class="drawer-header">
+<h2>Settings</h2>
+<button aria-label="Close settings" class="drawer-close" data-close="settingsDrawer">✕</button>
+</div>
+<div class="drawer-body">
+<div class="form-group">
+<label for="restaurantName">Restaurant Name</label>
+<input class="input" id="restaurantName" placeholder="e.g., RestBurger"/>
+</div>
+<div class="form-group">
+<label for="supportWhatsApp">Support WhatsApp</label>
+<input class="input" id="supportWhatsApp" placeholder="+44..."/>
+<p class="muted small">Use international format, e.g. +447700900123</p>
+</div>
+<div class="form-group">
+<label for="supportMessage">Default Support Message</label>
+<textarea class="input" id="supportMessage" placeholder="Hi! I need help..." rows="3"></textarea>
+</div>
+<div class="drawer-footer">
+<button class="btn btn-primary" id="saveSettingsBtn" type="button">Save</button>
+</div>
+</div>
+</div>
+<script src="public/restaurant-dashboard/js/script.js"></script>
+</body>
+</html>

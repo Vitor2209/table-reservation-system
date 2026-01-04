@@ -1,0 +1,21 @@
+{
+  "name": "restaurant-reservation-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Restaurant reservation dashboard (HTML/CSS/Vanilla JS) with a Node.js API backed by SQLite (offline).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "keywords": [
+    "reservations",
+    "dashboard",
+    "vanilla-js",
+    "node"
+  ],
+  "author": "Vitor Dutra Melo",
+  "license": "MIT"
+}
