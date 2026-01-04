@@ -1,73 +1,97 @@
 # 🍽️ Restaurant Reservation System — Admin Dashboard
 
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![SQLite](https://img.shields.io/badge/Database-SQLite-blue)
+![Vanilla JS](https://img.shields.io/badge/Frontend-Vanilla%20JS-yellow)
+![Offline](https://img.shields.io/badge/Mode-Offline--First-orange)
+![Status](https://img.shields.io/badge/Project-Active-success)
+
 A **full-stack restaurant table reservation system** built with **HTML, CSS, Vanilla JavaScript and Node.js**, featuring an **admin dashboard**, **drag & drop reservations**, **mobile-first UI** and an **offline SQLite database**.
 
-Designed to simulate a **real SaaS product** used by restaurants to manage bookings efficiently.
+Designed to **simulate a real SaaS product** used by restaurants to manage reservations efficiently.
 
 ---
 
-## 🚀 Live Concept
+## 🧠 Project Philosophy
 
-> 🧠 This project focuses on **real-world business logic**, not just UI.  
-> Everything works offline and can be easily upgraded to a production database.
+This project focuses on **real business logic**, not just UI.
 
----
-
-## 🛠️ Technologies Used
-
-<p align="left">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
-</p>
+✔ Offline-first architecture  
+✔ Real reservation workflow  
+✔ Admin-only control panel  
+✔ Ready to scale to production databases  
 
 ---
 
 ## ✨ Features
 
 ### 📅 Reservation Management
-- Weekly calendar view
-- Time slots from opening to closing hours
-- Drag & drop reservations between time slots
-- Create reservations by clicking or dragging over time intervals
-- Support for start time and end time
+- Weekly calendar view  
+- Time slots from opening to closing hours  
+- Create reservations by clicking or dragging over time intervals  
+- Drag & drop reservations between slots  
+- Support for start and end times  
 
 ### 🏷️ Status Control
-- Waiting Confirmation
-- Confirmed
-- Cancelled
-- Change status via drag & drop
+- Waiting Confirmation  
+- Confirmed  
+- Cancelled  
+- Change status via drag & drop  
 
 ### 🧑‍💼 Admin Dashboard
-- Reservation History panel
-- Closed Days & Hours configuration
-- Capacity per slot control
-- Full CRUD (Create, Read, Update, Delete)
+- Reservation history panel  
+- Closed days & hours configuration  
+- Capacity per slot control  
+- Full CRUD (Create, Read, Update, Delete)  
 
 ### 📱 Responsive Design
-- Mobile-first approach
-- Fully responsive (Desktop, Tablet & Mobile)
-- Collapsible sidebar with hamburger menu
-- Optimized for iPhone Safari
+- Mobile-first approach  
+- Fully responsive (Desktop / Tablet / Mobile)  
+- Collapsible sidebar with hamburger menu  
+- Optimized for iPhone Safari  
 
 ### 🗄️ Offline Database
-- SQLite local database
-- Auto-created on first run
-- No internet required
-- Persistent data storage
+- SQLite local database  
+- Auto-created on first run  
+- Persistent data storage  
+- No internet required  
 
 ### 🆘 Help & Support
-- Help modal
-- WhatsApp support button (customizable)
-- Preview mode with print support
+- Help modal  
+- WhatsApp support button (customizable)  
+- Preview mode with print support  
 
 ---
 
-## 📂 Project Structure
+## 🛠️ Tech Stack
 
-```text
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript  
+- **Backend:** Node.js, Express  
+- **Database:** SQLite  
+- **Architecture:** Offline-first  
+- **Tools:** Git, GitHub  
+
+---
+
+## 📡 API Endpoints (Main)
+
+```http
+GET    /api/reservations
+POST   /api/reservations
+PUT    /api/reservations/:id
+DELETE /api/reservations/:id
+
+GET    /api/settings
+PUT    /api/settings
+
+GET    /api/closed-days
+POST   /api/closed-days
+DELETE /api/closed-days/:id
+All endpoints interact with a local SQLite database.
+
+📂 Project Structure
+pgsql
+Copiar código
 restaurant-reservation-system/
 ├── server.js
 ├── db.js
@@ -80,7 +104,7 @@ restaurant-reservation-system/
 │   ├── js/
 │   └── assets/
 └── README.md
-▶️ How to Run Locally
+▶️ Run Locally
 1️⃣ Clone the repository
 bash
 Copiar código
@@ -100,7 +124,7 @@ http://localhost:3000
 🧪 Database Details
 Engine: SQLite
 
-File location: data/app.db
+File: data/app.db
 
 Tables:
 
@@ -115,12 +139,12 @@ closed_days
 🎯 Project Goals
 ✔ Practice full-stack development
 ✔ Simulate a real restaurant workflow
-✔ Apply clean architecture
+✔ Apply clean architecture principles
 ✔ Work without frameworks
 ✔ Build something usable, not just visual
 
 🔮 Future Improvements
-🔐 Authentication & roles
+🔐 Authentication & roles (admin / staff)
 
 📊 Reports and analytics
 
@@ -135,7 +159,10 @@ Vitor Dutra Melo
 💻 Software Developer
 📍 London, UK
 
-🔗 GitHub: https://github.com/your-username
+🔗 GitHub: https://github.com/Vitor2209
 🔗 LinkedIn: https://www.linkedin.com/in/vitordutramelo
 
 ⭐ If you found this project useful, feel free to star the repository!
+
+markdown
+Copiar código
