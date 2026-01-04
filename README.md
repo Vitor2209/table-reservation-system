@@ -1,77 +1,141 @@
-# Restaurant Reservation Dashboard
+# 🍽️ Restaurant Reservation System — Admin Dashboard
 
-A responsive **restaurant table reservation admin dashboard** built with **HTML, CSS and Vanilla JavaScript**.  
-This project simulates a real-world reservation management system used by restaurants to organize bookings by date, time and status.
+A **full-stack restaurant table reservation system** built with **HTML, CSS, Vanilla JavaScript and Node.js**, featuring an **admin dashboard**, **drag & drop reservations**, **mobile-first UI** and an **offline SQLite database**.
+
+Designed to simulate a **real SaaS product** used by restaurants to manage bookings efficiently.
+
+---
+
+## 🚀 Live Concept
+
+> 🧠 This project focuses on **real-world business logic**, not just UI.  
+> Everything works offline and can be easily upgraded to a production database.
+
+---
+
+## 🛠️ Technologies Used
+
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
+</p>
+
+---
 
 ## ✨ Features
 
-- 📅 Weekly calendar view with time slots
-- 🪑 Reservation cards displayed inside the schedule
-- 🏷️ Reservation status:
-  - Waiting Confirmation
-  - Confirmed
-  - Cancelled
-- 🎨 Color-coded statuses for better visualization
-- 📱 Fully responsive (Desktop, Tablet and Mobile)
-- 🍔 Collapsible sidebar with mobile hamburger menu
-- 🔍 Filter reservations by status
-- 🧠 Dynamic rendering using JavaScript (mock data)
+### 📅 Reservation Management
+- Weekly calendar view
+- Time slots from opening to closing hours
+- Drag & drop reservations between time slots
+- Create reservations by clicking or dragging over time intervals
+- Support for start time and end time
 
-## 🛠️ Tech Stack
+### 🏷️ Status Control
+- Waiting Confirmation
+- Confirmed
+- Cancelled
+- Change status via drag & drop
 
-- **HTML5** – semantic and structured markup  
-- **CSS3** – modern layout, responsive design  
-- **Vanilla JavaScript** – DOM manipulation and UI logic  
+### 🧑‍💼 Admin Dashboard
+- Reservation History panel
+- Closed Days & Hours configuration
+- Capacity per slot control
+- Full CRUD (Create, Read, Update, Delete)
 
-⚠️ No frameworks, no libraries, no build tools.
+### 📱 Responsive Design
+- Mobile-first approach
+- Fully responsive (Desktop, Tablet & Mobile)
+- Collapsible sidebar with hamburger menu
+- Optimized for iPhone Safari
+
+### 🗄️ Offline Database
+- SQLite local database
+- Auto-created on first run
+- No internet required
+- Persistent data storage
+
+### 🆘 Help & Support
+- Help modal
+- WhatsApp support button (customizable)
+- Preview mode with print support
+
+---
 
 ## 📂 Project Structure
 
 ```text
-restaurant-reservation-dashboard/
-├── index.html
-├── styles.css
-├── script.js
+restaurant-reservation-system/
+├── server.js
+├── db.js
+├── package.json
+├── data/
+│   └── app.db
+├── public/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
 └── README.md
-🚀 How to Run
-Clone the repository:
-
+▶️ How to Run Locally
+1️⃣ Clone the repository
 bash
 Copiar código
 git clone https://github.com/your-username/restaurant-reservation-dashboard.git
-Open index.html directly in your browser
-(No server required)
+2️⃣ Install dependencies
+bash
+Copiar código
+npm install
+3️⃣ Start the server
+bash
+Copiar código
+npm start
+4️⃣ Open in browser
+arduino
+Copiar código
+http://localhost:3000
+🧪 Database Details
+Engine: SQLite
 
-🧪 Project Purpose
-This project was created to practice and demonstrate:
+File location: data/app.db
 
-Dashboard UI design
+Tables:
 
-Responsive layouts
+reservations
 
-JavaScript data rendering
+settings
 
-Clean code organization
+closed_days
 
-Realistic product-oriented thinking
+⚠️ The database file is ignored by Git for safety and consistency.
 
-The front-end is designed to be easily connected to a Node.js backend in the future.
+🎯 Project Goals
+✔ Practice full-stack development
+✔ Simulate a real restaurant workflow
+✔ Apply clean architecture
+✔ Work without frameworks
+✔ Build something usable, not just visual
 
 🔮 Future Improvements
-Connect to a Node.js + Express backend
+🔐 Authentication & roles
 
-Persist data using a database
+📊 Reports and analytics
 
-Authentication for admin users
+🌍 Multi-restaurant support
 
-Create reservation from dashboard
+☁️ Cloud database (PostgreSQL)
 
-Public booking page for customers
+📲 Public booking page for customers
 
 👤 Author
 Vitor Dutra Melo
-Software Developer
-
+💻 Software Developer
 📍 London, UK
+
 🔗 GitHub: https://github.com/your-username
 🔗 LinkedIn: https://www.linkedin.com/in/vitordutramelo
+
+⭐ If you found this project useful, feel free to star the repository!
